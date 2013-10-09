@@ -14,11 +14,12 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{wise}[10/07/2012 Vorlage fuer Dokumente an der WiSe von 
 Malte Helmhold]
-\LoadClass[cleardoubleempty, listof=totoc, bibtotoc, idxtotoc, 12pt, abstracton, pointlessnumbers]{scrartcl}
+\LoadClass[clearpage=empty, listof=totoc,  bibliography=totoc, index=totoc, 12pt, abstracton, numbers=noenddot]{scrartcl}
 
 % Quellcode darstellen
 \RequirePackage{listings}
 \RequirePackage{fancyvrb}
+\RequirePackage{amsmath}
 
 \def\arraystretch{1.5}
 
@@ -203,6 +204,8 @@ tabsize=2,
 \RequirePackage{graphicx}
 \RequirePackage{url}
 
+
+
 %Zeilenabstand 1.5-zeilig
 \RequirePackage[onehalfspacing]{setspace}
 
@@ -214,7 +217,9 @@ tabsize=2,
 
 \ohead{Seite:~\pagemark}\ihead{\scshape\headmark}\chead{}
 %Zeichensätze der Kopfzeile setzen
-\setkomafont{pagehead}{\normalfont}
+\setkomafont{pageheadfoot}{%
+ 	\normalfont
+}
 \setkomafont{pagenumber}{\normalfont}
 %Nummerierung in der Kopfzeile ausblenden
 \renewcommand\sectionmarkformat{}
@@ -417,6 +422,8 @@ tabsize=2,
   \cleardoublepage
 }
 
+
+
 %Auswertung der Hyperref Option
 \if@hyperref%
     \if@pdf
@@ -435,10 +442,12 @@ tabsize=2,
      \fi
 \fi%
 
+%für das schönere Umbrechen von URL's im Literaturverzeichnis. Siehe URL-Package Dokumentation
+\g@addto@macro\UrlBreaks{ \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t \do\u\do\v\do\w\do\x\do\y\do\z\do\&\do\1\do\2\do\3 \do\4\do\5\do\6\do\7\do\8\do\9\do\0} 
+
+
 \if@en%
       \RequirePackage{wisetextEN}
      \else
        \RequirePackage{wisetextDE}
      \fi%
-     
-     
