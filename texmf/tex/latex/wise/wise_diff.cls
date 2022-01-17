@@ -1,7 +1,7 @@
 %%****************************************
 %%*                                      *
 %%* TU Dresden                           *
-%%* Lehrstuhl fÃ¼r Wirtschaftsinformatik, *
+%%* Lehrstuhl für Wirtschaftsinformatik, *
 %%* insbesondere Systementwicklung       *
 %%*                                      *
 %%****************************************
@@ -27,7 +27,7 @@ Malte Helmhold]
 \RequirePackage{float}
 
 %Auswertung der Paketoptionen
-%Behandlung der pdf-Option. Dies wird eingefÃ¼hrt, um Ãœbersetzungszeit
+%Behandlung der pdf-Option. Dies wird eingeführt, um Übersetzungszeit
 %zu sparen, wenn nur ein .ps erzeugt werden soll.
 \newif\if@pdf
 \@pdffalse
@@ -35,7 +35,7 @@ Malte Helmhold]
     \@pdftrue%
 }%
 
-  % de Sprachoption fÃ¼r englische Vorlage
+  % de Sprachoption für englische Vorlage
  \newif\if@en
 \@enfalse
 \DeclareOption{en} {%
@@ -67,7 +67,7 @@ Malte Helmhold]
   \@mppdftrue%
   \@pdftrue%
 }%
-% Option fÃ¼r eine vierte numerierte Gliederungsebene
+% Option für eine vierte numerierte Gliederungsebene
 \newif\if@xlevel
 \@xlevelfalse
 \DeclareOption{xlevel}{%
@@ -79,7 +79,7 @@ Malte Helmhold]
 \DeclareOption{hyperref}{%
   \@hyperreftrue
 }
-%Option fÃ¼r die verÃ¤nderte Kopfzeilenbeschriftung
+%Option für die veränderte Kopfzeilenbeschriftung
 \newif\if@partmarking
 \@partmarkingfalse
 \DeclareOption{partmarking}{%
@@ -150,13 +150,13 @@ tabsize=2,
   \fi
 \fi
 
-%Option nat auswerten und natbib Package einbinden fÃ¼r wisenat. Ohne diese Option muss die alte wisealpha.bst benutzt werden. 
+%Option nat auswerten und natbib Package einbinden für wisenat. Ohne diese Option muss die alte wisealpha.bst benutzt werden. 
 \if@nat%
 \RequirePackage{natbib}
 \fi
 
-% Wenn wir ein pdf erzeugen, dann fÃ¼r das Inhaltsverzeichnis
-% ein bookmark einfÃ¼gen
+% Wenn wir ein pdf erzeugen, dann für das Inhaltsverzeichnis
+% ein bookmark einfügen
 \if@pdf\if@hyperref
   \let\@tableofcontents\tableofcontents
   \renewcommand\tableofcontents{%
@@ -178,22 +178,22 @@ tabsize=2,
 %Wird das german-Paket auf jeden Fall benoetigt.
 \RequirePackage{german}
 
-% VerÃ¤nderungen in der Gliederungsebene (EinfÃ¼hrung einer vierten numerierten
+% Veränderungen in der Gliederungsebene (Einführung einer vierten numerierten
 % Ebene)
-% Dabei werden die Schriftarten des Paragraphen auf die NormalgrÃ¶ÃŸe
-% reduziert. Der subparagraph wird dann schrÃ¤g gesetzt.
+% Dabei werden die Schriftarten des Paragraphen auf die Normalgröße
+% reduziert. Der subparagraph wird dann schräg gesetzt.
 \if@xlevel
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 \fi
 
-%GroÃŸe Ãœberschriften beginnen stets auf einer neuen Seite, dessen Stil
+%Große Überschriften beginnen stets auf einer neuen Seite, dessen Stil
 %empty ist
 \addtokomafont{section}{\clearpage\thispagestyle{empty}}
 %Abschnitte beginnen auf einer neuen Doppelseite mit leerem Stil und
 %2cm vom oberen Rand entfernt
 \addtokomafont{partnumber}{\cleardoublepage\thispagestyle{empty}\vspace*{2cm}}
-% Festlegen der neuen Schriftarten fÃ¼r den Paragraphen und den
+% Festlegen der neuen Schriftarten für den Paragraphen und den
 % Subparagraphen.
 \setkomafont{paragraph}{\normalcolor\sffamily\bfseries}
 \setkomafont{subparagraph}{\normalcolor\sffamily\slshape}
@@ -204,21 +204,17 @@ tabsize=2,
 \RequirePackage{graphicx}
 \RequirePackage{url}
 
-
-
 %Zeilenabstand 1.5-zeilig
 \RequirePackage[onehalfspacing]{setspace}
 
-%Kopfzeile einblenden mit vernÃ¼nftiger Formatierung (keine
+%Kopfzeile einblenden mit vernünftiger Formatierung (keine
 %Silbentrennung und Begrenzung der Textlaufweite
-%Package errors, see https://tex.stackexchange.com/questions/541766/latex-error-file-scrpage2-sty-not-found
-%\RequirePackage[headsepline, automark]{scrpage2}
-\RequirePackage[headsepline, automark]{scrlayer-scrpage}
-%Wir schalten sÃ¤mtliche AnhÃ¤nge erst mal aus
+\RequirePackage[headsepline, automark]{scrpage2}
+%Wir schalten sämtliche Anhänge erst mal aus
 \clearscrheadings\clearscrplain
 
 \ohead{Seite:~\pagemark}\ihead{\scshape\headmark}\chead{}
-%ZeichensÃ¤tze der Kopfzeile setzen
+%Zeichensätze der Kopfzeile setzen
 \setkomafont{pageheadfoot}{%
  	\normalfont
 }
@@ -227,9 +223,9 @@ tabsize=2,
 \renewcommand\sectionmarkformat{}
 \renewcommand\subsectionmarkformat{}
 
-%Falls die Teilemarkierung in die Kopfzeile soll, mÃ¼ssen wir
-%etwas umstÃ¤ndlicher verfahren, da das scrpage2-Paket die Option
-%\automark{part} nicht kennt. Wir mÃ¼ssen das also manuell
+%Falls die Teilemarkierung in die Kopfzeile soll, müssen wir
+%etwas umständlicher verfahren, da das scrpage2-Paket die Option
+%\automark{part} nicht kennt. Wir müssen das also manuell
 %bewerkstelligen.
 %Dazu definieren wir einfach das subsectionmark um.
 \if@partmarking
@@ -239,7 +235,7 @@ tabsize=2,
 \newcommand\partmark{}
 %Den part-Befehl kopieren
 \let\@my@part\@part
-%Und redefinieren, um dabei die rechte Kopfzeile markieren zu kÃ¶nnen.
+%Und redefinieren, um dabei die rechte Kopfzeile markieren zu können.
 \def\@part[#1]#2{
   \@my@part[#1]{#2}
   \def\partmark{#1}
@@ -252,7 +248,7 @@ tabsize=2,
 \RequirePackage[header, title, toc]{wiseapp}
 \renewcommand{\appendixtocname}{Anh\"ange}
 
-%FÃ¼r den Vorspann des Werkes, bitte folgende Umgebung nutzen:
+%Für den Vorspann des Werkes, bitte folgende Umgebung nutzen:
 \newenvironment{preface}{%
   \cleardoublepage
   \pagenumbering{roman}
@@ -278,7 +274,7 @@ tabsize=2,
 
 
 
-%AbkÃ¼rzungsverzeichnis
+%Abkürzungsverzeichnis
 
 \if@en%
 \newcommand\listofabbreviations{%
@@ -286,11 +282,11 @@ tabsize=2,
 }%
 \else
 \newcommand\listofabbreviations{%
-  \addsec{AbkÃ¼rzungsverzeichnis}%
+  \addsec{Abkürzungsverzeichnis}%
 }%
 \fi%
 
-%Befehl fÃ¼r eine AbkÃ¼rzung
+%Befehl für eine Abkürzung
 \newcommand\abbreviation[2]{
   \noindent%
   \setlength{\tabcolsep}{0pt}%
@@ -303,7 +299,7 @@ tabsize=2,
 %Zum Einbinden von Mehrzeiligen Kommentaren mit \begin{comment} Umgebung
 \RequirePackage{verbatim}
 
-%Umgebung Laden fÃ¼r \being{lstlisting} fÃ¼r die Ausgabe mehrzeilgen Quellcodes
+%Umgebung Laden für \being{lstlisting} für die Ausgabe mehrzeilgen Quellcodes
 \RequirePackage{listings}
 
 
@@ -327,7 +323,7 @@ tabsize=2,
 \newcommand\longcite[3][] {(vgl. ~\cite{#2}, S.~#3#1)}
 %\newcommand\zitn[3]
 
-%indirect und direct citation:  (wie shortcite longcite nur verstÃ¤ndlicher)
+%indirect und direct citation:  (wie shortcite longcite nur verständlicher)
 \newcommand\indirect[2] {(vgl.~\cite{#1}, S.~#2)}
 \newcommand\indirectf[2] {(vgl.~\cite{#1}, S.~#2 f.)} 
 \newcommand\indirectff[2] {(vgl.~\cite{#1}, S.~#2 ff.)}
@@ -356,15 +352,15 @@ tabsize=2,
 }    
 
 %Standardmaessig formatieren wir die Herausgeber eines Werkes mal
-%fett. Wer will, kann diesen Befehl einfach Ã¼berschreiben und damit
-%den Default auÃŸer Kraft setzen.
+%fett. Wer will, kann diesen Befehl einfach überschreiben und damit
+%den Default außer Kraft setzen.
 \newcommand{\empheditors}[1]{
   \textbf{#1}
 }
 
 %Redefinitionen-----------------------------------------
 %
-% Paragraphen und Subparagraphen werden wie eine Ãœberschrift gesetzt
+% Paragraphen und Subparagraphen werden wie eine Überschrift gesetzt
 % und nicht, wie im LaTeX-Standard in den Text integriert.
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
   {-3.25ex\@plus -1ex \@minus -.2ex}%
@@ -381,7 +377,7 @@ tabsize=2,
 %Literaturverzeichnis statt nur Literatur
 \renewcommand{\refname}{Literaturverzeichnis}
 
-%Seitenstil der Indexumgebung auf empty zurÃ¼cksetzen (Standard: plain!)
+%Seitenstil der Indexumgebung auf empty zurücksetzen (Standard: plain!)
 \renewcommand{\indexpagestyle}{empty}
 
 %Formatierung der Randnotizen, falls ueber die mp oder
@@ -398,7 +394,7 @@ tabsize=2,
 }
 
 %Umgebungen------------------------------------
-%Abstract Befehl bereitstellen. Ab hier kleine rÃ¶mische Seitennumerrierung
+%Abstract Befehl bereitstellen. Ab hier kleine römische Seitennumerrierung
 \renewenvironment{abstract}{%
   \section*{Abstract}%
   \pagestyle{empty}%
@@ -424,29 +420,23 @@ tabsize=2,
   \cleardoublepage
 }
 
-
-
 %Auswertung der Hyperref Option
 \if@hyperref%
     \if@pdf
-        % PDF Option eingeschaltet -> Entsprechenden Backend Treiber fÃ¼r
+        % PDF Option eingeschaltet -> Entsprechenden Backend Treiber für
         % Hyperref laden
         \AtEndOfPackage{
         \RequirePackage[pdftex,colorlinks=true, linkcolor=blue, urlcolor=magenta,
             citecolor=blue]{hyperref} 
          }
      \else
-        % Keine PDF Option -> Standardtreiber fÃ¼r dvips laden
+        % Keine PDF Option -> Standardtreiber für dvips laden
         \AtEndOfPackage{
         \RequirePackage[colorlinks=true, linkcolor=blue, urlcolor=magenta,
             citecolor=blue]{hyperref} 
         }
      \fi
 \fi%
-
-%fÃ¼r das schÃ¶nere Umbrechen von URL's im Literaturverzeichnis. Siehe URL-Package Dokumentation
-\g@addto@macro\UrlBreaks{ \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t \do\u\do\v\do\w\do\x\do\y\do\z\do\&\do\1\do\2\do\3 \do\4\do\5\do\6\do\7\do\8\do\9\do\0} 
-
 
 \if@en%
       \RequirePackage{wisetextEN}

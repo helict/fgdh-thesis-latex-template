@@ -1860,17 +1860,17 @@ FUNCTION {chop.word}
 
 FUNCTION {format.lab.names}
 { 's :=
-	"{\sc " 
+	"{\scshape " 
   s #1 "{vv~}{ll}" format.name$
   "}" * * 
   s num.names$ duplicate$
   #2 >
-    { pop$ "{\ \sc et~al.}" * }
+   { pop$ "{\ \scshape et~al.}" * }
     { #2 <
         'skip$
         { s #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" =
-            { "{\ \sc ~et~al.}" * }
-            { "{\ \sc ~und }" * "{\sc " s #2 "{vv~}{ll}" format.name$ "}" * * * }
+	 { "{\ \scshape ~et~al.}" * }
+          { "{\ \scshape ~und }" * "{\scshape " s #2 "{vv~}{ll}" format.name$ "}" * * * }
           if$
         }
       if$
